@@ -1,6 +1,6 @@
 import unittest
 
-from structures import Node, Graph  # Replace 'your_module' with the actual module name
+from graph_structures import Node, Graph  # Replace 'your_module' with the actual module name
 
 class TestNode(unittest.TestCase):
     def test_repr(self):
