@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import networkx as nx
+from graph_structures import Graph
 
-def visualize_custom_graph(custom_graph: 'Graph'):
+def visualize_custom_graph(custom_graph: Graph, title: str):
     """
     Converte a estrutura de grafo personalizada para um grafo networkx e o visualiza
     usando matplotlib.
@@ -53,5 +54,5 @@ def visualize_custom_graph(custom_graph: 'Graph'):
             font_weight='bold',
             arrowsize=20)
     
-    plt.title("Visualização do Grafo da Consulta SQL", size=16)
+    plt.title(title, size=16)
     plt.show()
