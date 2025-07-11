@@ -1,16 +1,12 @@
 import sqlglot
 from sqlglot import exp
-import src.graph_structures
-from src.graph_structures import Graph  # Importa a classe Graph do módulo structures
-import src.sql_extractor
-from src.sql_extractor import get_clauses_from_ast
-import matplotlib.pyplot as plt
+from graph_structures import Graph  # Importa a classe Graph do módulo structures
+from sql_extractor import get_clauses_from_ast
 
-from src.visualizer import visualize_custom_graph # Opcional, para visualização
+from visualizer import visualize_custom_graph # Opcional, para visualização
 
 def generate_graph_from_sql(sql_string: str):
     """
-    Versão melhorada do Algoritmo 2.
     Gera um grafo estruturado a partir de uma string SQL.
 
     Args:
