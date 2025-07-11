@@ -3,8 +3,7 @@ from sqlglot import exp
 
 def get_clauses_from_ast(where_clause_ast):
     """
-    Versão simplificada do Algoritmo 1 que opera diretamente na AST (Árvore de Sintaxe Abstrata)
-    gerada por um parser SQL para extrair os nós de cada tipo de cláusula.
+    Versão simplificada de um parser SQL para extrair os nós de cada tipo de cláusula.
     """
     if not where_clause_ast:
         return [], [], []
@@ -15,19 +14,19 @@ def get_clauses_from_ast(where_clause_ast):
 
     # 1. Encontra todas as expressões 'IN'
     for expression in where_clause_ast.find_all(exp.In):
-        print(f"Encontrada expressão IN: {expression}")
+        # print(f"Encontrada expressão IN: {expression}")
         if isinstance(expression.this, exp.Column):
             in_clauses_nodes.append(expression.this.name)
 
     # 2. Encontra todas as expressões de igualdade ('=')
     for expression in where_clause_ast.find_all(exp.EQ):
-        print(f"Encontrada expressão de igualdade: {expression}")
+        # print(f"Encontrada expressão de igualdade: {expression}")
         if isinstance(expression.left, exp.Column):
             equals_clauses_nodes.append(expression.left.name)
 
     # 3. Encontra todas as expressões 'IS NOT NULL'
     for expression in where_clause_ast.find_all(exp.Is):
-        print(f"Encontrada expressão IS NOT NULL: {expression}")
+        # print(f"Encontrada expressão IS NOT NULL: {expression}")
         # Verifica se a expressão é do tipo '... IS NOT NULL'
         if isinstance(expression.this, exp.Column):
             notnull_clauses_nodes.append(expression.this.name)
