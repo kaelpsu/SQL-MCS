@@ -1,0 +1,3 @@
+SELECT id, name, email FROM users WHERE status = 'active';
+
+SELECT id, name, age FROM users WHERE status = 'active';
